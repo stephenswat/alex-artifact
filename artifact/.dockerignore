@@ -1,0 +1,4 @@
+.git
+Dockerfile
+build_artifact.sh
+*.tar.gz
