@@ -1,0 +1,7 @@
+digraph D {
+    rankdir=TB;
+
+    Data1 -> Paper;
+
+    Data2 -> Paper;
+}

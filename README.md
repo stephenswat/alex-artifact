@@ -8,16 +8,17 @@ This repository builds a computational artifact for
 This repository performs the following steps:
 
 1. Downloading the source code;
-2. Anonymizing all source and data;
-3. Packing the artifact into a tarball;
-4. (Optionally) testing the newly created artifact.
+1. Anonymizing all source and data;
+1. Packing the artifact into a tarball;
+1. (Optionally) testing the newly created artifact.
 
 The artifact created should contain:
 
 1. The ALEX code itself;
-2. Data used in the paper;
-3. Documentation for using the artifact;
-4. Infrastructure for running the artifact in Docker.
+1. The code for simulating Morton layout throughput;
+1. Data used in the paper;
+1. Documentation for using the artifact;
+1. Infrastructure for running the artifact in Docker.
 
 ## Usage
 

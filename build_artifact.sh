@@ -7,6 +7,9 @@ set -u
 TAG=$1
 ARTIFACT_NAME="alex-artifact-${TAG}-$(date -u +%Y%m%dT%H%MZ).tar.gz"
 
+mkdir -p artifact/img
+dot -Tsvg graph.dot > artifact/img/graph.svg
+
 (
     cd artifact
 
@@ -19,6 +22,16 @@ ARTIFACT_NAME="alex-artifact-${TAG}-$(date -u +%Y%m%dT%H%MZ).tar.gz"
         rm README.md
         sed -i -e 's/^readme = \"README.md\"$//g' pyproject.toml
         sed -i -e 's/\"Stephen Nicholas Swatman <stephen@v25.nl>\"//g' pyproject.toml
+    )
+
+    git clone https://github.com/stephenswat/morton-throughput.git
+
+    (
+        cd morton-throughput
+        rm -rf .git
+        rm README.md
+        sed -i -e 's/^readme = \"README.md\"$//g' pyproject.toml
+        sed -i -e 's/\"Stephen Nicholas Swatman\"//g' pyproject.toml
     )
 
     (! grep -iR "stephen" .)
