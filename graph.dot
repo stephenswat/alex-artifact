@@ -1,7 +1,43 @@
-digraph D {
+digraph {
     rankdir=TB;
+    node [shape=box];
 
-    Data1 -> Paper;
+    paper [label="Paper"];
 
-    Data2 -> Paper;
+    sw_mca [label="SW-1"]
+    sw_rng [label="SW-2"];
+    sw_bench [label="SW-3"];
+    sw_evolve [label="SW-4"];
+
+    data_mca [label="DATA-1"];
+    data_random_layouts [label="DATA-2"];
+    data_random_layout_bench [label="DATA-3"];
+    data_evolution [label="DATA-4"];
+    data_evolved_layout_bench [label="DATA-5"];
+
+    fig_throughput [label="Figure 3"]
+    fig_simval [label="Figure 4"]
+    tab_correlation [label="Table 2"]
+    fig_distribution [label="Figure 5"]
+    fig_evolution [label="Figure 6"]
+    tab_speedup [label="Table 3"]
+
+    sw_mca -> data_mca -> fig_throughput;
+    sw_rng -> data_random_layouts;
+    data_random_layouts -> sw_bench;
+    sw_bench -> data_random_layout_bench;
+    data_random_layout_bench -> fig_simval;
+    data_random_layout_bench -> tab_correlation;
+
+    sw_evolve -> data_evolution;
+    data_evolution -> fig_distribution;
+    data_evolution -> fig_evolution;
+    data_evolution -> sw_bench -> data_evolved_layout_bench -> tab_speedup;
+
+    fig_throughput -> paper;
+    fig_simval -> paper;
+    tab_correlation -> paper;
+    fig_distribution -> paper;
+    fig_evolution -> paper;
+    tab_speedup -> paper;
 }

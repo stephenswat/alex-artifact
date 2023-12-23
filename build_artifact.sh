@@ -43,6 +43,8 @@ tar -czvf $ARTIFACT_NAME artifact
 (
     cd artifact
     rm -rf alex
+    rm -rf morton-throughput
+    rm -rf img
 )
 
 echo "Artifact $ARTIFACT_NAME built succesfully!"

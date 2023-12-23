@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set -e
+set -o pipefail
+set -u
+
 cd alex; poetry install
 
-echo "Seems good!"
+echo "The artifact appears functional!"
