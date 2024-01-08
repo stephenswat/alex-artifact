@@ -4,8 +4,9 @@ set -e
 set -o pipefail
 set -u
 
-TAG=$1
-ARTIFACT_NAME="alex-artifact-${TAG}-$(date -u +%Y%m%dT%H%MZ).tar.gz"
+TAG_ALEX=$1
+TAG_THRP=$2
+ARTIFACT_NAME="alex-artifact-${TAG_ALEX}-${TAG_THRP}-$(date -u +%Y%m%dT%H%MZ).tar.gz"
 
 mkdir -p artifact/img
 dot -Tsvg graph.dot > artifact/img/graph.svg
@@ -17,7 +18,7 @@ dot -Tsvg graph.dot > artifact/img/graph.svg
 
     (
         cd alex
-        git checkout -q ${TAG}
+        git checkout -q ${TAG_ALEX}
         rm -rf .git
         rm README.md
         sed -i -e 's/^readme = \"README.md\"$//g' pyproject.toml
@@ -28,6 +29,7 @@ dot -Tsvg graph.dot > artifact/img/graph.svg
 
     (
         cd morton-throughput
+        git checkout -q ${TAG_THRP}
         rm -rf .git
         rm README.md
         sed -i -e 's/^readme = \"README.md\"$//g' pyproject.toml

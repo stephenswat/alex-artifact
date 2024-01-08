@@ -65,13 +65,13 @@ dependency manager for this.
 ### Step 3: Reproducing the Results
 
 
-#### Step 3A: Validation of Simulation
+#### Step 3A: Morton Layout Throughput
 
 
-#### Step 3B: Evolution Experiments
+#### Step 3B: Validation of Simulation
 
 
-#### Step 3C: 
+#### Step 3C: Evolution Experiments
 
 
 ## Reference Machines
