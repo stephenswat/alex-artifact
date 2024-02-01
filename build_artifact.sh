@@ -6,7 +6,7 @@ set -u
 
 TAG_ALEX=$1
 TAG_THRP=$2
-ARTIFACT_NAME="alex-artifact-${TAG_ALEX}-${TAG_THRP}-$(date -u +%Y%m%dT%H%MZ).tar.gz"
+ARTIFACT_NAME="alex-artifact-${TAG_ALEX}-${TAG_THRP}-$(date -u +%Y%m%dT%H%MZ).zip"
 
 mkdir -p artifact/img
 dot -Tsvg graph.dot > artifact/img/graph.svg
@@ -40,7 +40,7 @@ dot -Tsvg graph.dot > artifact/img/graph.svg
     (! grep -iR "swatman" .)
 )
 
-tar -czvf $ARTIFACT_NAME artifact
+zip -r $ARTIFACT_NAME artifact
 
 (
     cd artifact

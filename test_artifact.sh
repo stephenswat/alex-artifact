@@ -13,7 +13,7 @@ cp $1 $TEMP_DIR
 
 (
     cd $TEMP_DIR
-    tar -xzvf $(basename $1)
+    unzip $(basename $1)
     cd artifact
     docker build -t alex_artifact_$RAND_NAME .
     docker run -it alex_artifact_$RAND_NAME bash -c "scripts/validate_artifact.sh"
